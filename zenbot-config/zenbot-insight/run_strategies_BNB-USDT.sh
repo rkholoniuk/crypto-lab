@@ -1,4 +1,3 @@
-
 mkdir -p daily_simulaions_results
 
 cd ../zenbot/

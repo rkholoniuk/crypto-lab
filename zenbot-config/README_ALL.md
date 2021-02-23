@@ -13,6 +13,13 @@ brew services start mongodb-community
 
 Install standalone version following [this manual](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition).
 
+### Docker
+
+```sh
+cd {project-root}/dev-env
+docker-compose up
+```
+
 ## Fill data
 
 `./zenbot.sh backfill --days=1 binance.ETH-USDT`
