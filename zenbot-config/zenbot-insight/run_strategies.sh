@@ -1,4 +1,6 @@
 
+mkdir -p daily_simulaions_results
+
 cd ../zenbot/
 ./zenbot.sh backfill binance.ETH-USDT --days 1
 # ./zenbot.sh backfill binance.BTC-USDT --days 1
