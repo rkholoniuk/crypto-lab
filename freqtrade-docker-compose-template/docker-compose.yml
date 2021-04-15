@@ -15,9 +15,9 @@ services:
 #       context: .
 #       dockerfile: "./docker/Dockerfile.technical"
     restart: unless-stopped
-    container_name: freqtrade
+    container_name: freqtrade2
     volumes:
-      - "./user_data:/freqtrade/user_data"
+      - ./${USER_DATA_DIR}:/freqtrade/${USER_DATA_DIR}
     # Expose api on port 8080 (localhost only)
     # Please read the https://www.freqtrade.io/en/latest/rest-api/ documentation
     # before enabling this.
@@ -26,7 +26,7 @@ services:
     # Default command used when running `docker compose up`
     command: >
       trade
-      --logfile /freqtrade/user_data/logs/freqtrade.log
-      --db-url sqlite:////freqtrade/user_data/tradesv3.sqlite
-      --config /freqtrade/user_data/config.json
-      --strategy ObeliskRSI_v6_1
+      --logfile /freqtrade/${USER_DATA_DIR}/logs/freqtrade.log
+      --db-url sqlite:////freqtrade/${USER_DATA_DIR}/${DB_FILE}
+      --config /freqtrade/${USER_DATA_DIR}/${CONFIG_FILE_NAME}
+      --strategy ${STRATEGY_NAME} --strategy-path /freqtrade/${USER_DATA_DIR}/
