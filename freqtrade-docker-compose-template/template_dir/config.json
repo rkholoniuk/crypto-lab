@@ -87,28 +87,29 @@
             "BVND/.*"
         ]
     },
-     "pairlists": [
+      "pairlists": [
         {
             "method": "VolumePairList",
             "number_assets": 100,
             "sort_key": "quoteVolume",
             "refresh_period": 1800
         },
-        {"method": "AgeFilter", "min_days_listed": 90},
-        {"method": "PrecisionFilter"},
+        {"method": "AgeFilter", "min_days_listed": 1},
+        {"method": "PriceFilter", "low_price_ratio": 0.10},
         {"method": "SpreadFilter", "max_spread_ratio": 0.002},
+        {"method": "ShuffleFilter", "seed": 42},
         {
             "method": "RangeStabilityFilter",
             "lookback_days": 3,
-            "min_rate_of_change": 0.05,
+            "min_rate_of_change": 0.1,
             "refresh_period": 1440
         },
+        {"method": "PerformanceFilter"},
         {
             "method": "VolumePairList",
-            "number_assets": 50,
+            "number_assets": 40,
             "sort_key": "quoteVolume"
-        },
-        {"method": "ShuffleFilter", "seed": 42}
+        }
     ],
     "edge": {
         "enabled": false,
