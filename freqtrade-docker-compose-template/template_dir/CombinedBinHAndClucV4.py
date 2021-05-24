@@ -85,6 +85,12 @@ class CombinedBinHAndClucV4(IStrategy):
             return 0.01
         return 0.99
 
+    # def custom_stoploss(self, pair: str, trade: 'Trade', current_time: datetime,
+    #                     current_rate: float, current_profit: float, **kwargs) -> float:
+    #     if (current_time - timedelta(minutes=480) > trade.open_date_utc) & (current_profit < 0):
+    #         return -0.002
+    #     return -0.1
+    #
     def populate_indicators(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         # strategy BinHV45
         mid, lower = bollinger_bands(dataframe['close'], window_size=40, num_of_std=2)
