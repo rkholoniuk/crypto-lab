@@ -47,8 +47,9 @@ if [[ -n $TELEGRAM_CHAT_ID ]];then
     sed -i -e "s/telegram-chat_id/$TELEGRAM_CHAT_ID/g" $CONFIG_FILE_NAME
 fi
 
-cp $CONFIG_FILE_NAME $config_file_name
+mv $CONFIG_FILE_NAME $config_file_name
 touch $db_file_path
 
 
-
+#docker rm $(docker ps -a -f status=exited -q)
+#docker-compose up
